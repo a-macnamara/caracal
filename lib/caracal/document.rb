@@ -23,6 +23,7 @@ require 'caracal/renderers/custom_renderer'
 require 'caracal/renderers/document_renderer'
 require 'caracal/renderers/fonts_renderer'
 require 'caracal/renderers/footer_renderer'
+require 'caracal/renderers/header_renderer'
 require 'caracal/renderers/numbering_renderer'
 require 'caracal/renderers/package_relationships_renderer'
 require 'caracal/renderers/relationships_renderer'
@@ -135,6 +136,7 @@ module Caracal
         render_custom(zip)
         render_fonts(zip)
         render_footer(zip)
+        render_header(zip)
         render_settings(zip)
         render_styles(zip)
         render_document(zip)
@@ -199,6 +201,13 @@ module Caracal
       content = ::Caracal::Renderers::FooterRenderer.render(self)
 
       zip.put_next_entry('word/footer1.xml')
+      zip.write(content)
+    end
+
+    def render_header(zip)
+      content = ::Caracal::Renderers::HeaderRenderer.render(self)
+
+      zip.put_next_entry('word/header1.xml')
       zip.write(content)
     end
 

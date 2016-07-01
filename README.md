@@ -101,6 +101,7 @@ For each Caracal request, the following document structure will be created and z
         |- document.xml
         |- fontTable.xml
         |- footer.xml
+		|- header.xml
         |- numbering.xml
         |- settings.xml
         |- styles.xml
@@ -137,6 +138,9 @@ Specifies the fonts used in the document.
 
 **word/footer.xml**
 Defines the formatting of the document footer.
+
+**word/header.xml**
+Defines the formatting of the document header.
 
 **word/numbering.xml**
 Defines ordered and unordered list styles.
@@ -303,6 +307,19 @@ Page numbers can be added to the footer via the `page_numbers` method.  The meth
 ```ruby
 docx.page_numbers true do
   align :right     # sets the alignment. accepts :left, :center, and :right.
+end
+```
+
+
+### Header
+
+Headers can be added to the document via the `header` method.  The method accepts several parameters that allow nesting paragraphs etc.
+
+*Headers are turned off by default.*
+
+```ruby
+docx.header true do
+  text 'Company Name', align: :left
 end
 ```
 

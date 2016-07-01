@@ -36,6 +36,12 @@ module Caracal
                     xml.send 'w:footerReference', { 'r:id' => rel.formatted_id, 'w:type' => 'default' }
                   end
                 end
+                if document.header_show
+                  if rel = document.find_relationship('header1.xml')
+                    # add support for first-page header
+                    xml.send 'w:headerReference', { 'r:id' => rel.formatted_id, 'w:type' => 'default' }
+                  end
+                end
                 xml.send 'w:pgSz', page_size_options
                 xml.send 'w:pgMar', page_margin_options
               end
