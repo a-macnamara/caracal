@@ -46,6 +46,7 @@ module Caracal
     include Caracal::Core::Fonts
     include Caracal::Core::PageSettings
     include Caracal::Core::PageNumbers
+    include Caracal::Core::Headers
     include Caracal::Core::Styles
     include Caracal::Core::ListStyles
 
