@@ -8,7 +8,7 @@ module Caracal
       # This class handles block options passed to the header
       # method.
       #
-      class PageNumberModel < BaseModel
+      class HeaderModel < BaseModel
         
         #-------------------------------------------------------------
         # Configuration

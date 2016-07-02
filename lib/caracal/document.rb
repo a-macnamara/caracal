@@ -8,6 +8,7 @@ require 'caracal/core/list_styles'
 require 'caracal/core/lists'
 require 'caracal/core/page_breaks'
 require 'caracal/core/page_numbers'
+require 'caracal/core/headers'
 require 'caracal/core/page_settings'
 require 'caracal/core/custom_properties'
 require 'caracal/core/relationships'
@@ -46,7 +47,6 @@ module Caracal
     include Caracal::Core::Fonts
     include Caracal::Core::PageSettings
     include Caracal::Core::PageNumbers
-    include Caracal::Core::Headers
     include Caracal::Core::Styles
     include Caracal::Core::ListStyles
 
@@ -56,6 +56,8 @@ module Caracal
     include Caracal::Core::Rules
     include Caracal::Core::Tables
     include Caracal::Core::Text
+
+    include Caracal::Core::Headers
 
 
     #-------------------------------------------------------------
