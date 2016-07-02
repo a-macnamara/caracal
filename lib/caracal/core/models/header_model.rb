@@ -42,7 +42,8 @@ module Caracal
         #=============== VALIDATION ===========================
         
         def valid?
-          (!header_show)
+          # make sure model is valid with all inputs etc.
+          true
         end
         
         
