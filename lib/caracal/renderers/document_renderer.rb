@@ -224,7 +224,7 @@ module Caracal
         end
       end
 
-      def render_pagenumbercode(xml, model) do
+      def render_pagenumbercode(xml, model)
         xml.send 'w:r' do
           xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
         end
