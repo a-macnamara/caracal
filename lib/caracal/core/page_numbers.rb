@@ -22,6 +22,7 @@ module Caracal
           # accessors
           attr_reader :page_number_show
           attr_reader :page_number_align
+          attr_reader :page_number_is_code
           
           
           #-------------------------------------------------------------
@@ -39,6 +40,7 @@ module Caracal
             if model.valid?
               @page_number_show  = model.page_number_show
               @page_number_align = model.page_number_align
+              @page_number_is_code = model.page_number_is_code
             else
               raise Caracal::Errors::InvalidModelError, 'page_numbers :align parameter must be :left, :center, or :right'
             end

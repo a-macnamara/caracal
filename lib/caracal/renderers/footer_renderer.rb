@@ -15,6 +15,7 @@ module Caracal
       # sub-document.
       #
       def to_xml
+        return if document.page_number_is_code
         builder = ::Nokogiri::XML::Builder.with(declaration_xml) do |xml|
           xml.send 'w:ftr', root_options do
             xml.send 'w:p', paragraph_options do
