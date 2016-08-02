@@ -15,7 +15,6 @@ module Caracal
       # sub-document.
       #
       def to_xml
-        return if document.page_number_is_code
         builder = ::Nokogiri::XML::Builder.with(declaration_xml) do |xml|
           xml.send 'w:ftr', root_options do
             xml.send 'w:p', paragraph_options do
@@ -23,9 +22,11 @@ module Caracal
                 xml.send 'w:contextualSpacing', { 'w:val' => '0' }
                 xml.send 'w:jc', { 'w:val' => "#{ document.page_number_align }" }
               end
-              xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
-                xml.send 'w:r', run_options do
-                  xml.send 'w:rPr'
+              if !document.page_number_is_code do
+                xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
+                  xml.send 'w:r', run_options do
+                    xml.send 'w:rPr'
+                  end
                 end
               end
               xml.send 'w:r', run_options do
