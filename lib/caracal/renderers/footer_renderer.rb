@@ -22,11 +22,9 @@ module Caracal
                 xml.send 'w:contextualSpacing', { 'w:val' => '0' }
                 xml.send 'w:jc', { 'w:val' => "#{ document.page_number_align }" }
               end
-              if !document.page_number_is_code
-                xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
-                  xml.send 'w:r', run_options do
-                    xml.send 'w:rPr'
-                  end
+              xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
+                xml.send 'w:r', run_options do
+                  xml.send 'w:rPr'
                 end
               end
               xml.send 'w:r', run_options do

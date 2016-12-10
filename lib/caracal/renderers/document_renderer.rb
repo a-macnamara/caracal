@@ -225,25 +225,6 @@ module Caracal
         end
       end
 
-      def render_pagenumbercode(xml, model)
-        xml.send 'w:r' do
-          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-        end
-        xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
-          xml.send 'w:r', run_options do
-            xml.send 'w:rPr'
-          end
-        end
-        xml.send 'w:r' do
-          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-        end
-        xml.send 'w:r', run_options do
-          xml.send 'w:rPr' do
-            xml.send 'w:rtl', { 'w:val' => '0' }
-          end
-        end
-      end
-      
       def render_paragraph(xml, model)
         run_props = [:color, :size, :bold, :italic, :underline].map { |m| model.send("paragraph_#{ m }") }.compact
 
