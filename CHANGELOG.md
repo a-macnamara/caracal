@@ -1,3 +1,33 @@
+#### v1.0.8
+
+* Enhancements
+  * Added indentation controls to paragraph commands (@avolochnev).
+
+
+#### v1.0.7
+
+* Enhancements
+  * Added an :orientation option to :page_size so print jobs work as expected (@jdugan h/t @swedishpotato).
+
+
+#### v1.0.6
+
+* Bug Fixes
+  * Changed Paragraph and Table Cell Models slightly to allow syntax flexibility with respect to options (@jdugan).
+
+
+#### v1.0.5
+
+* Enhancements
+  * Added vertical alignment (@ykonovets).
+
+
+#### v1.0.4
+
+* Enhancements
+  * Changed tilt dependency to be less restrictive (@jdugan).
+
+
 #### v1.0.3
 
 * Enhancements
