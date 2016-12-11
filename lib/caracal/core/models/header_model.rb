@@ -8,7 +8,7 @@ module Caracal
       # This class handles block options passed to the header
       # method.
       #
-      class HeaderModel < BaseModel
+      class HeaderModel < ParagraphModel
         
         #-------------------------------------------------------------
         # Configuration
@@ -36,6 +36,13 @@ module Caracal
         
         def show(value)
           @header_show = !!value
+        end
+        
+        
+        #=============== SUB-METHODS ===========================
+        
+        def page # paragraph model method that shouldn't work for headers
+          raise Caracal::Errors::InvalidModelError, 'page not supported in headers.'
         end
         
         
