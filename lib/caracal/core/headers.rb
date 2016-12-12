@@ -1,4 +1,5 @@
 require 'caracal/core/models/header_model'
+require 'caracal/core/models/page_code_model'
 require 'caracal/errors'
 
 

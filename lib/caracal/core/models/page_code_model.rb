@@ -8,7 +8,8 @@ module Caracal
       # This class encapsulates the logic needed to store and manipulate
       # page number field code data.
       #
-      class PageCodeModel < BaseModel; end
+      class PageCodeModel < BaseModel
+      end
       
     end
   end
