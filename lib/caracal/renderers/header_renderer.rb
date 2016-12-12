@@ -5,7 +5,7 @@ require 'caracal/renderers/xml_renderer'
 
 module Caracal
   module Renderers
-    class HeaderRenderer < XmlRenderer
+    class HeaderRenderer < DocumentRenderer
       
       #-------------------------------------------------------------
       # Public Methods
