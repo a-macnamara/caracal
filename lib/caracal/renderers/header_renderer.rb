@@ -22,22 +22,31 @@ module Caracal
                 xml.send 'w:contextualSpacing', { 'w:val' => '0' }
                 xml.send 'w:jc', { 'w:val' => "right" }
               end
-              xml.send 'w:r' do
-                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+
+              #============= CONTENTS ===================================
+
+              # render header contents
+              document.toplevel_headers.each do |model|
+                method = render_method_for_model(model)
+                send(method, xml, model)
               end
-              xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
-                xml.send 'w:r', run_options do
-                  xml.send 'w:rPr'
-                end
-              end
-              xml.send 'w:r' do
-                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-              end
-              xml.send 'w:r', run_options do
-                xml.send 'w:rPr' do
-                  xml.send 'w:rtl', { 'w:val' => '0' }
-                end
-              end
+
+#              xml.send 'w:r' do
+#                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+#              end
+#              xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
+#                xml.send 'w:r', run_options do
+#                  xml.send 'w:rPr'
+#                end
+#              end
+#              xml.send 'w:r' do
+#                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+#              end
+#              xml.send 'w:r', run_options do
+#                xml.send 'w:rPr' do
+#                  xml.send 'w:rtl', { 'w:val' => '0' }
+#                end
+#              end
             end
           end
         end

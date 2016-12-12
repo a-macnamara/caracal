@@ -41,6 +41,12 @@ module Caracal
             end
           end
           
+          #============== GETTERS ==========================
+          
+          def toplevel_headers
+            @toplevel_headers ||= []
+          end
+          
         end
       end
     end

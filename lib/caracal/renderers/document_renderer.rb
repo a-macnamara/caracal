@@ -103,6 +103,11 @@ module Caracal
 
       #============= MODEL RENDERERS ===========================
 
+      def render_header(xml, model)
+        document.toplevel_headers << model
+      end
+
+
       def render_image(xml, model)
         unless ds = document.default_style
           raise Caracal::Errors::NoDefaultStyleError 'Document must declare a default paragraph style.'
