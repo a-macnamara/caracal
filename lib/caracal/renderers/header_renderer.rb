@@ -48,7 +48,12 @@ module Caracal
       def render_header(xml, model)
         STDERR.puts "rendering default header (-[page]-)..."
         STDERR.puts "header inspect:\n" + model.inspect
-        # Send -[pagenumber]-
+
+        model.runs.each do |run|
+          method = render_method_for_model(run)
+          send(method, xml, run)
+        end
+        
         xml.send 'w:r' do
           xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
         end
