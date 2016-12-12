@@ -61,6 +61,9 @@ module Caracal
       #------------------------------------------------------------- 
       private
       
+      def render_header(xml, model)
+      end
+      
       def root_options
         {
           'xmlns:mc'  => 'http://schemas.openxmlformats.org/markup-compatibility/2006',
