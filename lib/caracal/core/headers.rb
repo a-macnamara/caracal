@@ -2,6 +2,12 @@ require 'caracal/core/models/header_model'
 require 'caracal/errors'
 
 
+# TODO:
+# - header align left, right, center, etc.
+# - page number field codes
+# - tab separators to show both left-aligned and right-aligned headers on the same row
+# - duplicate for footers, with backward compatibility for footers
+
 module Caracal
   module Core
     
