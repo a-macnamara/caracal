@@ -20,6 +20,7 @@ module Caracal
           
           # accessors
           attr_reader :header_show
+          attr_reader :toplevel_headers
           
           
           #-------------------------------------------------------------
@@ -40,12 +41,6 @@ module Caracal
             else
               raise Caracal::Errors::InvalidModelError, 'invalid header!'
             end
-          end
-          
-          #============== GETTERS ==========================
-          
-          def toplevel_headers
-            @toplevel_headers ||= []
           end
           
         end
