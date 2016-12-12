@@ -30,9 +30,11 @@ module Caracal
               document.toplevel_headers.each_with_index do |model, i|
                 STDERR.puts "rendering model \##{i}"
                 method = render_method_for_model(model)
+                STDERR.puts "-> sending method #{method} for model #{i}"
                 send(method, xml, model)
               end
 
+#              # Send -[pagenumber]-
 #              xml.send 'w:r' do
 #                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
 #              end
