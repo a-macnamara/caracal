@@ -54,17 +54,17 @@ module Caracal
           send(method, xml, run)
         end
         
-        xml.send 'w:r' do
-          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-        end
-        xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
-          xml.send 'w:r', run_options do
-            xml.send 'w:rPr'
-          end
-        end
-        xml.send 'w:r' do
-          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-        end
+#        xml.send 'w:r' do
+#          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+#        end
+#        xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
+#          xml.send 'w:r', run_options do
+#            xml.send 'w:rPr'
+#          end
+#        end
+#        xml.send 'w:r' do
+#          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+#        end
         xml.send 'w:r', run_options do
           xml.send 'w:rPr' do
             xml.send 'w:rtl', { 'w:val' => '0' }
@@ -72,6 +72,14 @@ module Caracal
         end
       end
       
+      def render_pagecode(xml, model)
+        xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
+          xml.send 'w:r', run_options do
+            xml.send 'w:rPr'
+          end
+        end
+      end
+
       def root_options
         {
           'xmlns:mc'  => 'http://schemas.openxmlformats.org/markup-compatibility/2006',

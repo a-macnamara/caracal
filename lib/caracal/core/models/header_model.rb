@@ -45,6 +45,13 @@ module Caracal
           raise Caracal::Errors::InvalidModelError, 'page not supported in headers.'
         end
         
+        # .pagecode
+        def pagecode
+          model = Caracal::Core::Models::PageCodeModel.new()
+          runs << model
+          model
+        end
+        
         
         #=============== VALIDATION ===========================
         
