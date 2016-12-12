@@ -41,7 +41,7 @@ module Caracal
         
         #=============== SUB-METHODS ===========================
         
-        def page # paragraph model method that shouldn't work for headers
+        def page # override paragraph model method that shouldn't work for headers
           raise Caracal::Errors::InvalidModelError, 'page not supported in headers.'
         end
         

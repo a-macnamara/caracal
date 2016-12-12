@@ -35,7 +35,7 @@ module Caracal
             
             model = Caracal::Core::Models::HeaderModel.new(options, &block)
             if model.valid?
-              @header_show  = model.header_show
+              @header_show = model.header_show
             else
               raise Caracal::Errors::InvalidModelError, 'invalid header!'
             end
