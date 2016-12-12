@@ -33,24 +33,6 @@ module Caracal
                 STDERR.puts "-> sending method #{method} for model #{i}"
                 send(method, xml, model)
               end
-
-#              # Send -[pagenumber]-
-#              xml.send 'w:r' do
-#                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-#              end
-#              xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
-#                xml.send 'w:r', run_options do
-#                  xml.send 'w:rPr'
-#                end
-#              end
-#              xml.send 'w:r' do
-#                xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
-#              end
-#              xml.send 'w:r', run_options do
-#                xml.send 'w:rPr' do
-#                  xml.send 'w:rtl', { 'w:val' => '0' }
-#                end
-#              end
             end
           end
         end
@@ -64,6 +46,24 @@ module Caracal
       private
       
       def render_header(xml, model)
+        STDERR.puts "rendering default header (-[page]-)..."
+        # Send -[pagenumber]-
+        xml.send 'w:r' do
+          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+        end
+        xml.send 'w:fldSimple', { 'w:dirty' => '0', 'w:instr' => 'PAGE', 'w:fldLock' => '0' } do
+          xml.send 'w:r', run_options do
+            xml.send 'w:rPr'
+          end
+        end
+        xml.send 'w:r' do
+          xml.send 'w:t', { 'xml:space' => 'preserve' }, "-"
+        end
+        xml.send 'w:r', run_options do
+          xml.send 'w:rPr' do
+            xml.send 'w:rtl', { 'w:val' => '0' }
+          end
+        end
       end
       
       def root_options
