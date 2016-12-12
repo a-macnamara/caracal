@@ -20,7 +20,6 @@ module Caracal
           
           # accessors
           attr_reader :header_show
-          attr_reader :toplevel_headers
           
           
           #-------------------------------------------------------------
@@ -37,11 +36,18 @@ module Caracal
             model = Caracal::Core::Models::HeaderModel.new(options, &block)
             if model.valid?
               @header_show = model.header_show
-              #toplevel_headers << model
+              @toplevel_headers << model
             else
               raise Caracal::Errors::InvalidModelError, 'invalid header!'
             end
           end
+          
+
+          #============== GETTERS ==========================
+          
+          def toplevel_headers
+            @toplevel_headers ||= []
+          end          
           
         end
       end
