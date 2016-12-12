@@ -104,6 +104,7 @@ module Caracal
       #============= MODEL RENDERERS ===========================
 
       def render_header(xml, model)
+        STDERR.puts "adding header to top level document..."
         document.toplevel_headers << model
       end
 

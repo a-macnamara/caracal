@@ -27,7 +27,8 @@ module Caracal
 
               # render header contents
               STDERR.puts "rendering header models..."
-              document.toplevel_headers.each do |model|
+              document.toplevel_headers.each_with_index do |model, i|
+                STDERR.puts "rendering model \##{i}"
                 method = render_method_for_model(model)
                 send(method, xml, model)
               end
